@@ -15,8 +15,7 @@ const walletKeyData = JSON.parse(fs.readFileSync(homedir + '/.config/solana/id.j
 const walletKeypair = Keypair.fromSecretKey(new Uint8Array(walletKeyData));
 const wallet = new anchor.Wallet(walletKeypair);
 
-// const connection = new Connection(clusterApiUrl('devnet'))
-const connection = new Connection('http://127.0.0.1:8899');
+const connection = new Connection(clusterApiUrl('devnet'))
 
 function getProvider() {
     const provider = new anchor.Provider(
