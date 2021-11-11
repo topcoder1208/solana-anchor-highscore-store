@@ -7,7 +7,7 @@ highscore = "5iZs1BnZ2BK1A51EavZZaPyhgXS48kqqjpnhTDsebr8R"
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/home/wstar/.config/solana/id.json"
 
 [scripts]
