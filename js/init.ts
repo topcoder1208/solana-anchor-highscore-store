@@ -2,16 +2,13 @@ const { clusterApiUrl, Connection, PublicKey, Keypair } = require("@solana/web3.
 const { TOKEN_PROGRAM_ID, Token } = require("@solana/spl-token");
 const anchor = require('@project-serum/anchor');
 
-const utils = require("./utils");
-const { User, claimForUsers } = require("./user");
-
 const fs = require('fs');
 
 const path = require('path');
 const os = require("os");
 const homedir = '/home/wstar';
 
-const idl = JSON.parse(fs.readFileSync('../target/idl/xhashtag_staking.json'));
+const idl = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../target/idl/highscore.json')));
 const programID = new PublicKey(idl.metadata.address);
 
 const walletKeyData = JSON.parse(fs.readFileSync(homedir + '/.config/solana/id.json'));
