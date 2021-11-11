@@ -1,11 +1,13 @@
 [programs.localnet]
 highscore = "6aWLAqEQsiaocshPtom4o9xq6TstiGWxarbKmkhvxLyG"
+[programs.devnet]
+highscore = "5iZs1BnZ2BK1A51EavZZaPyhgXS48kqqjpnhTDsebr8R"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/home/wstar/.config/solana/id.json"
 
 [scripts]
