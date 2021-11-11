@@ -145,6 +145,78 @@ pub mod highscore {
 
         Ok(())
     }
+    pub fn clear_game1(ctx: Context<UpdateGame1>) -> ProgramResult {
+        let game = &mut ctx.accounts.game1;
+
+        game.score = 0;
+        game.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game2(ctx: Context<UpdateGame2>) -> ProgramResult {
+        let game2 = &mut ctx.accounts.game2;
+
+        game2.score = 0;
+        game2.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game3(ctx: Context<UpdateGame3>) -> ProgramResult {
+        let game3 = &mut ctx.accounts.game3;
+
+        game3.score = 0;
+        game3.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game4(ctx: Context<UpdateGame4>) -> ProgramResult {
+        let game4 = &mut ctx.accounts.game4;
+
+        game4.score = 0;
+        game4.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game5(ctx: Context<UpdateGame5>) -> ProgramResult {
+        let game5 = &mut ctx.accounts.game5;
+
+        game5.score = 0;
+        game5.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game6(ctx: Context<UpdateGame6>) -> ProgramResult {
+        let game6 = &mut ctx.accounts.game6;
+
+        game6.score = 0;
+        game6.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game7(ctx: Context<UpdateGame7>) -> ProgramResult {
+        let game7 = &mut ctx.accounts.game7;
+
+        game7.score = 0;
+        game7.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game8(ctx: Context<UpdateGame8>) -> ProgramResult {
+        let game8 = &mut ctx.accounts.game8;
+
+        game8.score = 0;
+        game8.winner = Pubkey::default();
+
+        Ok(())
+    }
+    pub fn clear_game9(ctx: Context<UpdateGame9>) -> ProgramResult {
+        let game9 = &mut ctx.accounts.game9;
+
+        game9.score = 0;
+        game9.winner = Pubkey::default();
+
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
@@ -232,6 +304,96 @@ pub struct UpdateGame8<'info> {
 pub struct UpdateGame9<'info> {
     #[account(mut, has_one = authority)]
     pub game9: Account<'info, Game9>,
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame1<'info> {
+    #[account(mut, has_one = authority)]
+    pub game1: Account<'info, Game1>,
+    #[account(
+        constraint = authority.key() == game1.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame2<'info> {
+    #[account(mut, has_one = authority)]
+    pub game2: Account<'info, Game2>,
+    #[account(
+        constraint = authority.key() == game2.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame3<'info> {
+    #[account(mut, has_one = authority)]
+    pub game3: Account<'info, Game3>,
+    #[account(
+        constraint = authority.key() == game3.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame4<'info> {
+    #[account(mut, has_one = authority)]
+    pub game4: Account<'info, Game4>,
+    #[account(
+        constraint = authority.key() == game4.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame5<'info> {
+    #[account(mut, has_one = authority)]
+    pub game5: Account<'info, Game5>,
+    #[account(
+        constraint = authority.key() == game5.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame6<'info> {
+    #[account(mut, has_one = authority)]
+    pub game6: Account<'info, Game6>,
+    #[account(
+        constraint = authority.key() == game6.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame7<'info> {
+    #[account(mut, has_one = authority)]
+    pub game7: Account<'info, Game7>,
+    #[account(
+        constraint = authority.key() == game7.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame8<'info> {
+    #[account(mut, has_one = authority)]
+    pub game8: Account<'info, Game8>,
+    #[account(
+        constraint = authority.key() == game8.authority,
+    )]
+    pub authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClearGame9<'info> {
+    #[account(mut, has_one = authority)]
+    pub game9: Account<'info, Game9>,
+    #[account(
+        constraint = authority.key() == game9.authority,
+    )]
     pub authority: Signer<'info>,
 }
 

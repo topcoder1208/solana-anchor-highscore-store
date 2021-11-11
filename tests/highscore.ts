@@ -94,6 +94,34 @@ describe('highscore', () => {
     assert.ok(game1Account.winner.toBase58() == winner.publicKey.toBase58())
   })
 
+  it('clear highscore', async () => {
+    await program.rpc.clearGame1({
+      accounts: {
+        game1: game1.publicKey,
+        authority: provider.wallet.publicKey,
+      },
+    })
+
+    const game1Account = await program.account.game1.fetch(game1.publicKey)
+
+    assert.ok(game1Account.score.toNumber() == 0)
+    assert.ok(game1Account.winner.toBase58() == anchor.web3.PublicKey.default.toBase58())
+  })
+
+  it('trying clear highscore with not authority', async () => {
+    try {
+      await program.rpc.clearGame1({
+        accounts: {
+          game1: game1.publicKey,
+          authority: winner.publicKey,
+        },
+      })
+      console.log("cleared with not authority")
+    } catch(e) {
+      console.log("not cleared with not authority")
+    }
+  })
+
   it('Setting game 2 highscore', async () => {
     winner = anchor.web3.Keypair.generate();
     const score = new anchor.BN(3);
